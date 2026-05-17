@@ -12,6 +12,12 @@ This analysis examines how the term "Decision Intelligence" has emerged and evol
 
 This analysis focuses on the period from **2010 onwards**, capturing the emergence and evolution of Decision Intelligence as a formal discipline.
 
+## Built with IBM Bob
+
+This analysis was developed using **IBM Bob**, an AI-powered coding assistant that helps accelerate development and analysis workflows.
+
+**Try IBM Bob for free:** [https://bob.ibm.com/trial](https://bob.ibm.com/trial)
+
 ## Key Findings
 
 ### Temporal Evolution
