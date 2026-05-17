@@ -56,7 +56,7 @@ The study focuses on three scholarly publication types:
 
 All analytical outputs are available in the `output/` directory:
 
-1. **Temporal Trends** (`output/temporal-evolution.png`)
+1. **Temporal Evolution** (`output/temporal-evolution.png`)
    - Publications per year (2010-2026)
    - Cumulative growth curve
    - Year-over-year growth rates
@@ -69,13 +69,17 @@ All analytical outputs are available in the `output/` directory:
 
 ![](output/source-distribution.png)
 
-3. **Document Type Distribution**
-   - Article vs. Review vs. Conference Paper proportions
-   - Evolution of document types over time
+3. **Temporal Trends by Source** (`output/temporal-trends-by-source.png`)
+   - Publication trends over time separated by data source
+   - Comparative analysis of Scopus, ScienceDirect, and Preprints
 
-4. **Integrated Analysis** 
-   - Stacked visualizations showing all sources and types over time
+![](output/temporal-trends-by-source.png)
+
+4. **Recent Growth Analysis** (`output/recent-growth-analysis.png`)
+   - Detailed analysis of recent publication trends
    - Identification of key growth periods since 2010
+
+![](output/recent-growth-analysis.png)
 
 ## Methodology
 
@@ -171,8 +175,8 @@ citrus-decision-intelligence/
 │   ├── decision_intelligence_integrated.csv  # Final dataset (no abstracts)
 │   ├── temporal-evolution.png     # Visualization 1
 │   ├── source-distribution.png    # Visualization 2
-│   ├── document-type-distribution.png  # Visualization 3
-│   └── integrated-analysis.png    # Visualization 4
+│   ├── temporal-trends-by-source.png  # Visualization 3
+│   └── recent-growth-analysis.png # Visualization 4
 ├── 01_data_preparation.ipynb      # Data loading & processing (run first)
 ├── 02_visualization.ipynb         # Analysis & visualizations (run second)
 ├── .gitignore
@@ -194,8 +198,8 @@ citrus-decision-intelligence/
 2. **Visualization Charts** (4 PNG files in `output/` directory)
    - `temporal-evolution.png` - Publication trends, cumulative growth, growth rates
    - `source-distribution.png` - Breakdown by database (Scopus/ScienceDirect/Preprints)
-   - `document-type-distribution.png` - Article/Review/Conference proportions and evolution
-   - `integrated-analysis.png` - Stacked visualizations and key growth periods
+   - `temporal-trends-by-source.png` - Publication trends over time separated by data source
+   - `recent-growth-analysis.png` - Detailed analysis of recent publication trends and key growth periods
 
 ### Summary Statistics
 
