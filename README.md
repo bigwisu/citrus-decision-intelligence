@@ -81,6 +81,47 @@ All analytical outputs are available in the `output/` directory:
 
 ![](output/recent-growth-analysis.png)
 
+### Keyword Analysis and Co-occurrence Mapping
+
+Advanced keyword analysis reveals the conceptual landscape and thematic evolution of Decision Intelligence research:
+
+5. **Top Keywords** (`output/top-keywords.png`)
+   - Most frequent keywords across all publications
+   - Frequency distribution showing dominant themes
+   - Identifies core concepts in Decision Intelligence discourse
+
+![](output/top-keywords.png)
+
+6. **Keyword Temporal Trends** (`output/keyword-temporal-trends.png`)
+   - Evolution of top keywords over time (2010-2026)
+   - Tracks emergence and growth of key concepts
+   - Reveals shifting research priorities and focus areas
+
+![](output/keyword-temporal-trends.png)
+
+7. **Keyword Co-occurrence Heatmap** (`output/keyword-cooccurrence-heatmap.png`)
+   - Matrix showing relationships between keywords
+   - Identifies thematic clusters and research intersections
+   - Shows strength of relationships between key terms
+
+![](output/keyword-cooccurrence-heatmap.png)
+
+8. **Keyword Network Graph** (`output/keyword-network-graph.png`)
+   - VOSviewer-style network visualization
+   - Node size represents keyword frequency
+   - Edge width represents co-occurrence strength
+   - Reveals research theme clusters and connections
+
+![](output/keyword-network-graph.png)
+
+**Keyword Data Outputs:**
+- `top_keywords.csv` - Ranked list of most frequent keywords with counts
+- `keyword_trends_by_year.csv` - Temporal evolution data for top keywords
+- `keyword_cooccurrence_matrix.csv` - Full co-occurrence matrix
+- `top_cooccurring_pairs.csv` - Most frequently co-occurring keyword pairs
+
+**Note:** Keyword analysis uses abstracts and author keywords, which are processed locally and not included in the Git repository.
+
 ## Methodology
 
 ### Data Collection
@@ -173,12 +214,22 @@ citrus-decision-intelligence/
 │   └── preprints.csv
 ├── output/                        # Analysis outputs
 │   ├── decision_intelligence_integrated.csv  # Final dataset (no abstracts)
-│   ├── temporal-evolution.png     # Visualization 1
-│   ├── source-distribution.png    # Visualization 2
-│   ├── temporal-trends-by-source.png  # Visualization 3
-│   └── recent-growth-analysis.png # Visualization 4
+│   ├── decision_intelligence_with_abstracts.csv  # With abstracts (not in git)
+│   ├── temporal-evolution.png     # Temporal trends visualization
+│   ├── source-distribution.png    # Source breakdown visualization
+│   ├── temporal-trends-by-source.png  # Source-specific trends
+│   ├── recent-growth-analysis.png # Recent growth patterns
+│   ├── top-keywords.png           # Top keywords visualization
+│   ├── keyword-temporal-trends.png  # Keyword evolution over time
+│   ├── keyword-cooccurrence-heatmap.png  # Co-occurrence matrix heatmap
+│   ├── keyword-network-graph.png  # Network visualization (VOSviewer-style)
+│   ├── top_keywords.csv           # Ranked keyword list
+│   ├── keyword_trends_by_year.csv # Temporal keyword data
+│   ├── keyword_cooccurrence_matrix.csv  # Co-occurrence matrix
+│   └── top_cooccurring_pairs.csv  # Top keyword pairs
 ├── 01_data_preparation.ipynb      # Data loading & processing (run first)
-├── 02_visualization.ipynb         # Analysis & visualizations (run second)
+├── 02_visualization.ipynb         # Temporal analysis & visualizations (run second)
+├── 03_keyword_analysis.ipynb      # Keyword trends & co-occurrence (run third)
 ├── .gitignore
 ├── LICENSE
 ├── README.md                      # This file
@@ -195,11 +246,28 @@ citrus-decision-intelligence/
    - **Abstracts removed** for Git compliance
    - Ready for further analysis
 
-2. **Visualization Charts** (4 PNG files in `output/` directory)
+2. **Temporal Analysis Visualizations** (4 PNG files)
    - `temporal-evolution.png` - Publication trends, cumulative growth, growth rates
    - `source-distribution.png` - Breakdown by database (Scopus/ScienceDirect/Preprints)
    - `temporal-trends-by-source.png` - Publication trends over time separated by data source
    - `recent-growth-analysis.png` - Detailed analysis of recent publication trends and key growth periods
+
+3. **Keyword Analysis Visualizations** (4 PNG files)
+   - `top-keywords.png` - Most frequent keywords with frequency distribution
+   - `keyword-temporal-trends.png` - Evolution of top keywords over time (2010-2026)
+   - `keyword-cooccurrence-heatmap.png` - Co-occurrence matrix showing keyword relationships
+   - `keyword-network-graph.png` - VOSviewer-style network visualization of keyword connections
+
+4. **Keyword Analysis Data** (4 CSV files)
+   - `top_keywords.csv` - Ranked list of most frequent keywords with counts and percentages
+   - `keyword_trends_by_year.csv` - Temporal evolution data for top keywords
+   - `keyword_cooccurrence_matrix.csv` - Full co-occurrence matrix for network analysis
+   - `top_cooccurring_pairs.csv` - Most frequently co-occurring keyword pairs
+
+5. **Dataset with Abstracts** (Local only, not in Git)
+   - `decision_intelligence_with_abstracts.csv` - Full dataset including abstracts for keyword analysis
+   - Used by notebook 03 for keyword extraction and co-occurrence mapping
+   - **Not committed to Git** due to publisher Terms of Use
 
 ### Summary Statistics
 
@@ -231,8 +299,11 @@ For detailed instructions on replicating this analysis, see [INSTALL.md](INSTALL
 
 To replicate this analysis:
 
-1. **Run `01_data_preparation.ipynb`** - Loads, deduplicates, filters (2010+), and exports data
-2. **Run `02_visualization.ipynb`** - Creates visualizations and analysis
+1. **Run `01_data_preparation.ipynb`** - Loads, deduplicates, filters (2010+), and exports data (with and without abstracts)
+2. **Run `02_visualization.ipynb`** - Creates temporal visualizations and analysis
+3. **Run `03_keyword_analysis.ipynb`** - Performs keyword extraction, trends analysis, and co-occurrence mapping
+
+**Note:** Notebook 03 requires the file with abstracts generated by notebook 01. This file is for local analysis only and is not committed to Git.
 
 ---
 

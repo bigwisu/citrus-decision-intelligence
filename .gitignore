@@ -6,6 +6,11 @@ ENV/
 # Data directory
 data/
 
+# Files with abstracts (for local keyword analysis only)
+output/decision_intelligence_with_abstracts.csv
+output/*_keywords.csv
+output/*_cooccurrence.csv
+
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
