@@ -1,19 +1,26 @@
 # Decision Intelligence Evolution Analysis
 
-An analytical study tracking the evolution of "Decision Intelligence" as a research topic across academic literature from 1965 to 2026.
+An analytical study tracking the evolution of "Decision Intelligence" as a research topic across academic literature from 2010 to 2026.
 
 ## Overview
 
 This analysis examines how the term "Decision Intelligence" has emerged and evolved in scholarly publications by integrating data from three major sources: Scopus, ScienceDirect, and preprint repositories (Arxiv, SSRN, TechRxiv).
 
+### Historical Context
+
+**Dr. Lorien Pratt** first coined and developed the term "Decision Intelligence." By **2010**, she and **Mark Zangari** founded the related concept of "decision engineering," which was officially formalized and renamed as **Decision Intelligence (DI) around 2012**.
+
+This analysis focuses on the period from **2010 onwards**, capturing the emergence and evolution of Decision Intelligence as a formal discipline.
+
 ## Key Findings
 
 ### Temporal Evolution
 
-The analysis reveals the publication trajectory of "Decision Intelligence" research over six decades:
+The analysis reveals the publication trajectory of "Decision Intelligence" research since its formalization:
 
-- **First Publication:** 1965
-- **Time Span:** 1965-2026 (61 years)
+- **Analysis Period:** 2010-2026 (17 years)
+- **Starting Point:** 2010 (when the concept was first developed)
+- **Formalization:** ~2012 (official naming as Decision Intelligence)
 - **Recent Growth:** Significant acceleration in the last 5 years
 - **Peak Year:** [See temporal analysis charts in `output/`]
 
@@ -41,22 +48,30 @@ The study focuses on three scholarly publication types:
 
 All analytical outputs are available in the `output/` directory:
 
-1. **Temporal Trends** (`output/temporal_evolution.png`)
-   - Publications per year (1965-2026)
+1. **Temporal Trends** (`output/temporal-evolution.png`)
+   - Publications per year (2010-2026)
    - Cumulative growth curve
    - Year-over-year growth rates
 
-2. **Source Distribution** (`output/source_distribution.png`)
+![](output/temporal-evolution.png)
+
+2. **Source Distribution** (`output/source-distribution.png`)
    - Breakdown by database (Scopus/ScienceDirect/Preprints)
    - Overlap analysis between Scopus and ScienceDirect
 
-3. **Document Type Distribution** (`output/document_type_distribution.png`)
+![](output/source-distribution.png)
+
+3. **Document Type Distribution** (`output/document-type-distribution.png`)
    - Article vs. Review vs. Conference Paper proportions
    - Evolution of document types over time
 
-4. **Integrated Timeline** (`output/integrated_timeline.png`)
-   - Stacked visualization showing all sources and types over time
-   - Identification of key growth periods
+![](output/document-type-distribution.png)
+
+4. **Integrated Analysis** (`output/integrated-analysis.png`)
+   - Stacked visualizations showing all sources and types over time
+   - Identification of key growth periods since 2010
+
+![](output/integrated-analysis.png)
 
 ## Methodology
 
@@ -86,19 +101,22 @@ All analytical outputs are available in the `output/` directory:
 4. Deduplication (Scopus ↔ ScienceDirect)
    └── DOI-based matching and removal
 
-5. Filtering
+5. Year Filtering
+   └── Keep only 2010+ records (all sources)
+
+6. Document Type Filtering
    ├── Scopus: Keep Article/Review/Conference only
    ├── ScienceDirect: Keep Article/Review/Conference only
    └── Preprints: Keep all
 
-6. Integration
+7. Integration
    └── Merge filtered Scopus + ScienceDirect + all Preprints
 
-7. Analysis & Visualization
-   └── Temporal trends, distributions, statistics
+8. Analysis & Visualization
+   └── Temporal trends (2010-2026), distributions, statistics
 
-8. Export
-   └── Integrated dataset (CSV)
+9. Export
+   └── Integrated dataset (CSV, without abstracts for Git compliance)
 ```
 
 ### Deduplication Strategy
@@ -127,11 +145,13 @@ The `data/` directory is excluded from version control. To replicate this analys
 
 ### Known Limitations
 
-1. **ScienceDirect Export:** Web application limits required splitting exports by document type
-2. **Preprint Data:** Manual extraction using LLM due to Scopus export constraints
-3. **Coverage:** Limited to publications explicitly using "Decision Intelligence" term
-4. **Language:** Primarily English-language publications
-5. **Access Date:** Data collected May 2026
+1. **Temporal Scope:** Analysis limited to 2010+ (when DI was first developed)
+2. **ScienceDirect Export:** Web application limits required splitting exports by document type
+3. **Preprint Data:** Manual extraction using LLM due to Scopus export constraints
+4. **Coverage:** Limited to publications explicitly using "Decision Intelligence" term
+5. **Language:** Primarily English-language publications
+6. **Access Date:** Data collected May 2026
+7. **Abstracts:** Removed from exported dataset for Git compliance with publisher ToU
 
 ## Repository Structure
 
@@ -144,12 +164,13 @@ citrus-decision-intelligence/
 │   ├── lexical-DI-conference-*.bib
 │   └── preprints.csv
 ├── output/                        # Analysis outputs
-│   ├── temporal_evolution.png
-│   ├── source_distribution.png
-│   ├── document_type_distribution.png
-│   └── integrated_timeline.png
-├── decision_intelligence_evolution.ipynb  # Analysis notebook
-├── decision_intelligence_integrated.csv   # Final dataset
+│   ├── decision_intelligence_integrated.csv  # Final dataset (no abstracts)
+│   ├── temporal-evolution.png     # Visualization 1
+│   ├── source-distribution.png    # Visualization 2
+│   ├── document-type-distribution.png  # Visualization 3
+│   └── integrated-analysis.png    # Visualization 4
+├── 01_data_preparation.ipynb      # Data loading & processing (run first)
+├── 02_visualization.ipynb         # Analysis & visualizations (run second)
 ├── .gitignore
 ├── LICENSE
 ├── README.md                      # This file
@@ -160,15 +181,17 @@ citrus-decision-intelligence/
 
 ### Generated Files
 
-1. **`decision_intelligence_integrated.csv`**
-   - Deduplicated and integrated dataset
+1. **`output/decision_intelligence_integrated.csv`**
+   - Deduplicated and integrated dataset (2010-2026)
    - All sources combined
+   - **Abstracts removed** for Git compliance
    - Ready for further analysis
 
-2. **Visualization Charts** (in `output/` directory)
-   - Publication trends over time
-   - Source and document type distributions
-   - Cumulative growth analysis
+2. **Visualization Charts** (4 PNG files in `output/` directory)
+   - `temporal-evolution.png` - Publication trends, cumulative growth, growth rates
+   - `source-distribution.png` - Breakdown by database (Scopus/ScienceDirect/Preprints)
+   - `document-type-distribution.png` - Article/Review/Conference proportions and evolution
+   - `integrated-analysis.png` - Stacked visualizations and key growth periods
 
 ### Summary Statistics
 
@@ -179,9 +202,10 @@ Key metrics from the analysis:
 - **ScienceDirect Records:** [Unique, filtered records]
 - **Preprints:** [All preprints included]
 - **Duplicates Removed:** [DOI-based deduplication count]
-- **Time Span:** 1965-2026
+- **Time Span:** 2010-2026 (since DI was first developed)
 - **Peak Publication Year:** [Year with most publications]
 - **5-Year Growth Rate:** [Recent trend]
+- **Data Quality:** Abstracts removed from exported dataset
 
 ## Citation
 
@@ -195,8 +219,17 @@ See [LICENSE](LICENSE) file for details.
 
 For detailed instructions on replicating this analysis, see [INSTALL.md](INSTALL.md).
 
+## Execution Order
+
+To replicate this analysis:
+
+1. **Run `01_data_preparation.ipynb`** - Loads, deduplicates, filters (2010+), and exports data
+2. **Run `02_visualization.ipynb`** - Creates visualizations and analysis
+
 ---
 
-**Research Purpose:** This analysis is conducted for academic research to understand the emergence and evolution of "Decision Intelligence" as a scholarly concept.
+**Research Purpose:** This analysis is conducted for academic research to understand the emergence and evolution of "Decision Intelligence" as a scholarly concept since its formalization in 2010.
 
-**Data Compliance:** Users must obtain their own institutional access to Scopus and ScienceDirect and comply with all applicable terms of service.
+**Data Compliance:** Users must obtain their own institutional access to Scopus and ScienceDirect and comply with all applicable terms of service. Abstracts are not included in the exported dataset to comply with publisher Terms of Use.
+
+**Historical Attribution:** The term "Decision Intelligence" was coined and developed by Dr. Lorien Pratt, with the formal discipline emerging around 2010-2012.
