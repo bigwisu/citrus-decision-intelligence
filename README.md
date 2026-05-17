@@ -61,17 +61,13 @@ All analytical outputs are available in the `output/` directory:
 
 ![](output/source-distribution.png)
 
-3. **Document Type Distribution** (`output/document-type-distribution.png`)
+3. **Document Type Distribution**
    - Article vs. Review vs. Conference Paper proportions
    - Evolution of document types over time
 
-![](output/document-type-distribution.png)
-
-4. **Integrated Analysis** (`output/integrated-analysis.png`)
+4. **Integrated Analysis** 
    - Stacked visualizations showing all sources and types over time
    - Identification of key growth periods since 2010
-
-![](output/integrated-analysis.png)
 
 ## Methodology
 
