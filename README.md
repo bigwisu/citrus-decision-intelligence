@@ -16,6 +16,8 @@ This analysis focuses on the period from **2010 onwards**, capturing the emergen
 
 This analysis was developed using **IBM Bob**, an AI-powered coding assistant that helps accelerate development and analysis workflows.
 
+**Development Time:** This entire analysis—from initial setup to final visualizations—was completed in approximately **2 hours and 16 minutes** with Bob's assistance.
+
 **Try IBM Bob for free:** [https://bob.ibm.com/trial](https://bob.ibm.com/trial)
 
 ## Key Findings
